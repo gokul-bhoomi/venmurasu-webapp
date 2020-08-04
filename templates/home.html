@@ -6,7 +6,7 @@
         <style>
         body {font-family: Arial, Helvetica, sans-serif;}
         body{
-        background-image:linear-gradient(120deg,#FAD7A0 ,#ECF0F1   );
+        background-image:linear-gradient(120deg,#27bec9 ,#6aee70   );
         min-height:100vh;
         }
         .task{
@@ -16,18 +16,28 @@
         margin :40px 0px;
         }
         </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     </head>
 
     <body>
-        <form action = "{% url 'largeWords' %}"method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="submit" value="Submit">
-        </form>
-        {% for d in mydoc %}
-        <div class="task">
-            {{d.text}}
+        <br><br>
+        <div class = "container">
+            <form class="person-form" action = "{% url 'largeWords' %}"method="post">
+                {% csrf_token %}
+                {{ form }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>  
+
+        
+        <div class = "container">
+            <div class = "list">
+                {% for d in mydoc %}
+                <div class="task">
+                    {{d.text}}
+                </div>
+                {% endfor %}
+            </div>
         </div>
-        {% endfor %}
     </body>
 </html>
